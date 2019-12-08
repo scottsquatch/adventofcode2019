@@ -17,3 +17,8 @@ func Min(a int, b int) int {
 
 	return b
 }
+
+// Divmod calulates and return the division and mod operations on the two inputs
+func Divmod(a int, b int) (div int, mod int) {
+	return a / b, a % b
+}
