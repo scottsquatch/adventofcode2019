@@ -53,3 +53,10 @@ func (p Point) ManhattanDistance(q Point) int {
 	result := math.Abs(float64(p.X-q.X)) + math.Abs(float64(p.Y-q.Y))
 	return int(result)
 }
+
+// EuclideanDistance calculates the eculidean distance to another point
+func (p Point) EuclideanDistance(q Point) float64 {
+	deltaY := q.Y - p.Y
+	deltaX := q.X - p.X
+	return math.Sqrt(float64(deltaY*deltaY + deltaX*deltaX))
+}
