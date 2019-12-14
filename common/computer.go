@@ -7,7 +7,7 @@ import (
 
 // IntCodeProgram represents a program to be run by Computer
 type IntCodeProgram struct {
-	programData []int
+	ProgramData []int
 }
 
 // Computer represents a copmuter that runs IntCode programs
@@ -31,13 +31,13 @@ func NewIntCodeProgram(str string) *IntCodeProgram {
 
 // NewComputer Create a new Copmuter
 func NewComputer(in <-chan int64, out chan<- int64) *Computer {
-	return &Computer{in, out, make([]int64, 2048), 0, 0}
+	return &Computer{in, out, make([]int64, 8192), 0, 0}
 }
 
 // Run an IntCode program with the current computer
 func (comp *Computer) Run(program *IntCodeProgram) {
 	// copy
-	for i, n := range program.programData {
+	for i, n := range program.ProgramData {
 		comp.memory[i] = int64(n)
 	}
 
